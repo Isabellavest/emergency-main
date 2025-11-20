@@ -1,42 +1,139 @@
+/* ====== SVG-tekst farve ====== */
 #head-txt {
   fill: rgb(54, 54, 54);
 }
-.info-graphic,
-.info-text {
+
+/* ====== GENERELT LAYOUT ====== */
+
+/* Sektionen med spøgelses-illustration */
+.info-graphic {
   background-color: var(--color-info-bg);
+  margin: 60px auto 80px auto;
   padding: 20px 0;
 }
-.info-graphic {
-  border-radius: 0;
-  margin: 60px auto 80px auto;
+
+/* Sørg for at SVG'en skalerer pænt og er centreret */
+.info-graphic svg {
+  display: block;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
 }
-.info-text h2 {
+
+/* Panelet med tekst til højre */
+.info-text {
+  background-color: var(--color-info-bg);
+  padding: 24px 0 32px;
+}
+
+/* Selve “kortet” inde i panelet */
+.info-text-inner {
+  background: #4d4848;
+  border-radius: 18px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden; /* så headerens afrunding holder */
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* ====== OVERSKRIFT-BAR ====== */
+
+.info-text-inner h2 {
   line-height: 3rem;
   text-align: center;
   background-color: var(--color-headline-bg);
   color: var(--color-headline-text-page);
-  margin-bottom: 1rem;
-}
-.info-text h3 {
-  font-size: 0.8rem;
-  line-height: 0.8rem;
-  font-weight: 600;
   margin: 0;
-  padding: 0;
+  padding-inline: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
-.info-text > *:not(:first-child) {
-  margin: 0 clamp(1rem, 10%, 7rem);
+
+.info-text h2 {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
 }
-.info-text p {
-  font-size: 0.8rem;
-  line-height: 1.3;
-  margin: 0 0 1.2rem 0;
-  padding: 0;
+
+/* ====== TEKST-INDHOLD ====== */
+
+.info-text-inner article,
+.info-text-inner .info-box {
+  margin: 0;
+  padding-inline: 1.5rem;
 }
+
+/* intro-tekst */
+.info-text-inner p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  color: var(--color-text-inverted);
+}
+
+/* lille spacing efter intro/blokken med .placeholder */
+.info-text-inner article {
+  padding-top: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ====== INFO-BOKSE ====== */
+
 .info-box {
-  padding: 1.5rem 1rem 0.5rem 1rem;
+  padding: 1rem 1.5rem 0.85rem 1.5rem;
   background-color: var(--color-infobox-1-bg);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
+
 .info-box:nth-of-type(2n) {
   background-color: var(--color-infobox-2-bg);
+}
+
+/* overskrift inde i boksene */
+.info-box h3 {
+  font-size: 0.8rem;
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0 0 0.35rem 0;
+  padding: 0;
+  text-transform: none;
+}
+
+/* sidste boks får lidt ekstra luft i bunden */
+.info-box:last-of-type {
+  padding-bottom: 1.25rem;
+}
+
+/* ====== HOTSPOT INFO-ANIMATION ====== */
+
+/* kun indholdet skal animeres – ikke hele den grå baggrund */
+.info-text-inner {
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+/* fade/slide UD når vi skifter indhold */
+.info-text-inner.is-updating {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* lille fade/slide IND når indholdet er opdateret */
+.info-text-inner.animate-in {
+  animation: infoFadeIn 0.25s ease-out;
+}
+
+@keyframes infoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

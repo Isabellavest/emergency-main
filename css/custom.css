@@ -1,34 +1,34 @@
 :root {
   /* Colours */
-  --color-bg: #fceb94; /* page background /*
+  --color-bg: #f3f1e7; /* page background */
 
   /* Header */
-  --color-head-bg: #ff4b00;
+  --color-head-bg: #2e3b13;
 
   /* Logotype */
-  --color-logotype-bg: #000;
-  --color-text-logotype: #fffae2;
+  --color-logotype-bg: #0a0a0a;
+  --color-text-logotype: #e8f0d5;
   --font-logotype-size: 2rem;
 
   /* Global menu */
-  --color-menu-bg: #5a5b5e;
+  --color-menu-bg: #1f2614;
   /* Links */
-  --color-link-bg: #78766e;
-  --color-link-hover: #fff; /* used */
-  --color-link-active: #99958f; /* used */
-  --border-radius-links: 1px;
+  --color-link-bg: #5f9a3b;
+  --color-link-hover: #c7d36f; /* used */
+  --color-link-active: #c7d36f; /* used */
+  --border-radius-links: 8px;
 
   /* Headlines og rubrik */
   --font-h1-size: 1rem;
   --font-sub1-size: 1rem;
   --font-h2-size: 1rem;
   --font-h3-size: 1rem;
-  --color-headline-bg: #4b4545;
-  --color-headline-text-page: #42413d;
+  --color-headline-bg: #2a2f1a;
+  --color-headline-text-page: #23271a;
 
   /* Tekst */
-  --color-text: #000;
-  --color-text-inverted: #cdccc4;
+  --color-text: #151615;
+  --color-text-inverted: #e7e9e2;
 
   /*  Marginer */
   --margin-head-bottom: 5px;
@@ -37,13 +37,13 @@
   --border-radius: 5px;
 
   /* Cards */
-  --color-card-bg: #8a8585;
-  --color-cta-card-bg: #d5d2d0;
+  --color-card-bg: #b9b29f;
+  --color-cta-card-bg: #c7d36f;
   /* news-cards */
-  --color-news-bg: #dbdad4;
-  --color-news-bg-inverted: #585a5e;
-  --color-cta-newscard-bg: #787473;
-  --color-cta-newscard-bg-inverted: #7b7d83;
+  --color-news-bg: #e3e2dc;
+  --color-news-bg-inverted: #2c3020;
+  --color-cta-newscard-bg: #8e8a7e;
+  --color-cta-newscard-bg-inverted: #7b836f;
 
   /* Fonts */
   --font-family-sans: "Rubik", ui-sans-serif;
@@ -66,4 +66,619 @@
   --color-info-bg: #676161;
   --color-infobox-1-bg: #cfcec6;
   --color-infobox-2-bg: #969995;
+
+  /* Form specific */
+  --form-background-color: var(--color-card-bg);
+  --info-background-color: var(--color-news-bg);
+  --headline-bg-color-inverted: var(--color-head-bg);
+  --headline-color-inverted: var(--color-text-inverted);
+}
+
+/* =========================== BREAKING NEWS MODALER INDEX =========================== */
+
+.news-dialog {
+  border: 1px solid var(--color-news-bg-inverted);
+  padding: 0;
+  max-width: 720px;
+  width: min(92vw, 720px);
+  max-height: 90vh;
+  border-radius: 26px;
+  background: var(--color-news-bg);
+  color: var(--color-text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+
+  /* placering */
+  position: fixed;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+
+  /* hele kortet kan scrolle på små skærme */
+  overflow-y: auto;
+}
+
+/* Header-bar øverst */
+.news-dialog__header {
+  background: var(--color-head-bg);
+  color: #fff;
+  padding: 1.1rem 2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.news-dialog__header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+/* Billede øverst */
+.news-dialog__image {
+  width: 100%;
+  height: 680px; /* styrer præcis hvor høj billedet er */
+  object-fit: cover; /* beskærer top + bund */
+  object-position: center; /* centrer beskæringen */
+  display: block;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-news-bg-inverted); /* optional nice detail */
+}
+
+/* Tekst-område */
+.news-dialog__body {
+  padding: 1.8rem 2rem 2.4rem;
+  line-height: 1.65; /* mere luft mellem linjerne */
+  font-size: 1rem;
+}
+
+.news-dialog__body p {
+  margin-bottom: 1.1rem; /* luft mellem afsnit */
+}
+
+.news-dialog__body p + p {
+  margin-top: 0.5rem; /* undgå dobbelt mellemrum */
+}
+
+.news-dialog__body ol {
+  margin: 1rem 0 1rem 1.4rem;
+}
+
+.news-dialog__body li {
+  margin-bottom: 0.6rem; /* luft mellem bullet points */
+}
+
+/* Gør læserbrev-overskrifter tydigere */
+.news-dialog__body strong {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Footer med knap */
+.news-dialog__footer {
+  padding: 0.8rem 2rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Brug din eksisterende .cta_btn – vi justerer bare formen lidt */
+.dialog-cta {
+  border-radius: 999px;
+  padding: 0.6rem 1.8rem;
+}
+
+/* Backdrop – mørk & blurry */
+.news-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(7px);
+}
+
+/* Lille pop-animation */
+.news-dialog[open] {
+  animation: news-popup 0.23s ease-out;
+}
+
+@keyframes news-popup {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -54%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .news-dialog {
+    width: 94vw;
+  }
+
+  .news-dialog__header,
+  .news-dialog__body,
+  .news-dialog__footer {
+    padding-inline: 1.25rem;
+  }
+}
+
+/* Nummereret liste i artiklerne */
+.news-dialog__body ol {
+  margin: 1rem 0 1.5rem 1.5rem; /* lidt indryk og luft */
+  padding-left: 1.2rem;
+  list-style: decimal; /* kun tal, ingen prikker */
+}
+
+.news-dialog__body ol li {
+  margin-bottom: 0.7rem; /* luft mellem punkterne */
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums; /* gør tallene lige under hinanden */
+}
+
+/************************************ === POPOVER PÅ SMELLY GHOST === **************************************/
+
+.news_card_header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.news_card_header h3 {
+  flex: 1;
+}
+
+/* Lille rund info-knap */
+.info-btn {
+  border: none;
+  border-radius: 999px;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--color-cta-newscard-bg-inverted);
+  color: var(--color-text-inverted);
+  cursor: pointer;
+}
+
+/************************* Selve popover-boblen **********************/
+/* Sørg for at popover kan placeres i forhold til kortet */
+.news_card {
+  position: relative; /* ← NY linje */
+  background-color: var(--color-news-bg);
+  display: grid;
+  grid-template-rows: repeat(min-content);
+  gap: 0.4rem;
+  padding: 1rem 0;
+  height: minmax(300px, min-content);
+}
+
+/* Lille rund info-knap – den er fin som du har den */
+.info-btn {
+  border: none;
+  border-radius: 999px;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--color-cta-newscard-bg-inverted);
+  color: var(--color-text-inverted);
+  cursor: pointer;
+}
+
+/* Popover-boblen – nu placeret inde i kortet */
+.popover {
+  position: absolute;
+  right: 1rem;
+  top: 3.2rem; /* ca. lige under headeren */
+  z-index: 10;
+
+  background: #f4f0e4;
+  color: #111;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  max-width: 260px;
+  line-height: 1.5;
+  font-size: 0.85rem;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  display: none; /* skjult som udgangspunkt */
+}
+
+.popover.is-visible {
+  display: block; /* vises når JS tilføjer klassen */
+}
+
+.popover::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 18px; /* lille pil ind mod knappen */
+  border-width: 0 7px 7px 7px;
+  border-style: solid;
+  border-color: transparent transparent #f4f0e4 transparent;
+}
+
+/* === INLINE ACCORDION I DIALOG === */
+
+.accordion-inline {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; /* NY – luft ned til konklusionen */
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: var(--color-news-bg);
+  border: 1px solid var(--color-news-bg-inverted);
+}
+
+.accordion-inline summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  position: relative;
+}
+
+/* fjern standard trekant */
+.accordion-inline summary::-webkit-details-marker {
+  display: none;
+}
+
+/* plus/minus ikon */
+.accordion-inline summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.accordion-inline[open] summary::after {
+  content: "–";
+}
+
+.accordion-inline p {
+  margin-top: 0.7rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.news_card:first-child:before {
+  background-color: #1f2b12 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 6px #a7ff3f, 0 0 10px #a7ff3f;
+}
+
+/* =============== INSTRUCTION PAGE LAYOUT =============== */
+
+body#instruction main {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+
+/* GRID på desktop */
+@media (min-width: 900px) {
+  body#instruction main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "title title"
+      "subtitle subtitle"
+      "ghost info";
+    column-gap: 3.5rem;
+    row-gap: 1.5rem;
+  }
+
+  body#instruction main > h1 {
+    grid-area: title;
+  }
+
+  body#instruction main > p {
+    grid-area: subtitle;
+  }
+
+  body#instruction .info-graphic {
+    grid-area: ghost;
+  }
+
+  body#instruction .info-text {
+    grid-area: info;
+  }
+}
+
+/* Mobil: normal flow */
+@media (max-width: 899px) {
+  body#instruction .info-graphic,
+  body#instruction .info-text {
+    margin-top: 1.5rem;
+  }
+}
+
+/************** Titel og intro-tekst *****************/
+
+/* OBS: overskriften bliver senere overskrevet af “TOP PÅ INSTRUCTION”-blokken –
+   den her del må gerne stå, men farverne styres nederst */
+body#instruction main > h1 {
+  background: #2e522d;
+  color: #f5f3ea;
+  display: inline-flex;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.85rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+body#instruction main > p {
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  max-width: 36rem;
+}
+
+/************** Ghost-illustration + hotspots *****************/
+
+/* gør ghost-boksen olivengrøn i stedet for grålilla */
+body#instruction .info-graphic {
+  background: #485a2d; /* oliven-grøn som kortene på forsiden */
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+body#instruction .info-graphic svg {
+  width: 85%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+}
+
+/* Hotspots */
+body#instruction #hotspot circle {
+  cursor: pointer;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+/* brug limegrønt lys mere i stil med forsiden (#6f8a1b) */
+body#instruction #hotspot circle:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px rgba(111, 138, 27, 0.7));
+}
+
+body#instruction #hotspot circle.is-active {
+  filter: drop-shadow(0 0 18px rgba(111, 138, 27, 0.9));
+}
+
+/************** Info-panelet til højre *****************/
+
+body#instruction .info-text {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: #1e2714; /* samme som forsidens card-sektioner */
+}
+
+body#instruction .info-text-inner {
+  flex: 1;
+  background: #485a2d; /* oliven-grøn som kortene på forsiden */
+  padding: 2.5rem 3rem;
+  color: #f7f4ee;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Header-pill */
+
+body#instruction .info-text-inner h2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e2714; /* samme som forsidens card-sektioner */
+  color: #f3f1e8;
+  padding: 0.9rem 1.8rem;
+  border-radius: 18px;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+/* Introtekst */
+
+body#instruction .info-text-inner .placeholder {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 32rem;
+  color: white;
+}
+
+/* Info-bokse – en smule mørkere, men stadig transparente ovenpå panelet */
+
+body#instruction .info-box {
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 22px;
+  padding: 1.2rem 1.4rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #f3f1e8;
+}
+
+body#instruction .info-box strong {
+  font-weight: 700;
+}
+
+/* CTA-knap (hvis du bruger den) */
+
+body#instruction .btn-primary.expert-cta {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #6f8a1b; /* limegrøn accent som forsiden */
+  color: #182016;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+}
+
+body#instruction .btn-primary.expert-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+  background: #7c9a20;
+}
+
+/* Empty state: kun intro-tekst vises, indtil der klikkes på et hotspot */
+
+body#instruction .info-box:empty {
+  display: none;
+}
+
+/* Når der ER indhold, skal de have lidt afstand opad */
+body#instruction .info-box:not(:empty) {
+  margin-top: 0.5rem;
+}
+
+/* ===== TOP PÅ INSTRUCTION – LILLE CARD-HEADER, MATCHER FORSIDEN ===== */
+
+body#instruction main > h1 {
+  /* nulstil alt det gamle */
+  box-shadow: none;
+  border: none;
+  width: auto !important;
+  max-width: max-content;
+  display: inline-block; /* så den kun fylder omkring teksten */
+
+  /* stil inspireret af kort-headerne på forsiden */
+  background: var(--color-head-bg); /* mørkegrøn fra dit design-system */
+  color: var(--color-text-inverted); /* hvid/beige tekst */
+  padding: 0.55rem 1.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
+}
+
+/* intro-teksten under overskriften */
+
+body#instruction main > p {
+  margin: 0 0 2rem 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--color-headline-text-page);
+  max-width: 34rem;
+  text-align: left;
+}
+
+/***************** Beige baggrundsplade *******************/
+body#instruction main {
+  max-width: 1600px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  position: relative; /* ← vigtigt for ::before */
+  z-index: 0;
+}
+
+/* Baggrundspladen bag ghost + panel */
+body#instruction main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  /* hvor pladen starter inde i main */
+  top: 0px; /* justér op/ned efter smag */
+  left: 0;
+  right: 0;
+  bottom: 0; /* går hele vejen ned til bunden af main */
+
+  background: #d2d0c6; /* samme beige som resten */
+}
+
+/***************************************** DARK THEME ******************************************/
+:root[data-theme="dark"] {
+  /* Baggrunde */
+  --color-bg: #1e302a; /* Dybere sort m. grøn tone */
+  --color-head-bg: #10180d; /* Header + hero */
+  --color-logotype-bg: #000000;
+
+  /* Tekst */
+  --color-text: #f3f6ee; /* Lidt varmere, mere læsbar */
+  --color-text-inverted: #ffffff;
+
+  /* Headlines / rubrikker */
+  --color-headline-bg: #182113; /* Cards hovedsektion */
+  --color-headline-text-page: #e6edd7;
+
+  /* Cards */
+  --color-card-bg: #1f261e; /* Tidligere #37352d → for brun */
+  --color-cta-card-bg: #98d646; /* Beholder grøn, renere tone */
+
+  /* Breaking news / nyhedskort */
+  --color-news-bg: #22281f; /* ren mørkegrøn */
+  --color-news-bg-inverted: #11140f;
+
+  --color-cta-newscard-bg: #3b4535; /* lidt lysere og grønnere */
+  --color-cta-newscard-bg-inverted: #aaba8d;
+
+  /* Infographic / info-paneler */
+  --color-info-bg: #20231f; /* ren, mørk grønlig */
+  --color-infobox-1-bg: #2c312b; /* let adskilt */
+  --color-infobox-2-bg: #363c36;
+
+  /* Forms */
+  --form-background-color: var(--color-card-bg);
+  --info-background-color: var(--color-news-bg);
+  --headline-bg-color-inverted: var(--color-head-bg);
+  --headline-color-inverted: var(--color-text-inverted);
+
+  /* Instruction page specifikt */
+  --instruction-plate-bg: #d2d0c6; /* beige plade */
+  --instruction-panel-outer-bg: #1e2714; /* mørk ramme bag panelet */
+  --instruction-panel-bg: #485a2d; /* olivengrøn indre panel/ghostbox */
+}
+
+/* ===== Instruction page – kun i dark mode ===== */
+
+/* HTML har data-theme="dark", når du trykker på Nat-knappen */
+html[data-theme="dark"] body#instruction main::before {
+  background: #232820; /* mørkere plade i stedet for beige */
+}
+
+/* Ghost-boks + højre panel mørkere i nat */
+html[data-theme="dark"] body#instruction .info-graphic {
+  background: #28331c;
+}
+
+html[data-theme="dark"] body#instruction .info-text {
+  background: #050805;
+}
+
+html[data-theme="dark"] body#instruction .info-text-inner {
+  background: #28331c;
+}
+
+html[data-theme="dark"] body#instruction .info-text-inner h2 {
+  background: #050805;
 }
