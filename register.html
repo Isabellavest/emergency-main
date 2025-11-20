@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/cards.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="icon" type="image/png" href="img/fav.png" />
-    <title>Emergency Site</title>
-  </head>
-  <body id="register">
-    <header>
-      <nav>
-        <div id="logotype-wrapper" class="logo">
-          <a href="index.html"> LOGO-TYPE </a>
-        </div>
-        <ul class="menu">
-          <li><a class="menuItem" href="instruction.html">Nærkontakt </a></li>
-          <li><a class="menuItem" href="register.html">Indberet</a></li>
-        </ul>
-        <button class="burger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      </nav>
-    </header>
 
-    <main>
-      <h1>INDBERET</h1>
-      <section id="form-section">
-        <article id="form-info">
-          <h2>Overskrift</h2>
-          <p>Tekst</p>
-        </article>
-        <form id="webform"></form>
-      </section>
-      <section id="form-summary">
-        <h2>Summary</h2>
-        <article>
-          <p class="placeholder">Opsummering</p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <nav class="some">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="another">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="yetanother">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-    </footer>
-    <script src="js/burger.js"></script>
-    <!-- <script src="js/main.js"></script> -->
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/burger.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/forms.css" />
+  <link rel="icon" type="image/png" href="img/fav.png" />
+  <title>Emergency Site</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+</head>
+
+<body id="register">
+  <header>
+    <nav>
+      <div id="logotype-wrapper" class="logo">
+        <a href="index.html" class="logo-brand">
+          <img src="img/ghostlogo2.svg" alt="Ghost Emergency logo" class="logo-icon" />
+          <span class="logo-text">Ghostbuddies</span>
+        </a>
+      </div>
+      <ul class="menu">
+        <li><a class="menuItem" href="instruction.html"> Kontakt vores eksperter</a></li>
+        <li><a class="menuItem" href="register.html">Indberet din emergency</a></li>
+      </ul>
+
+      <!-- DARK MODE TOGGLE -->
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Skift farvetilstand">
+        Nat
+      </button>
+
+      <button class="burger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>INDBERET DIN EMERGENCY HER</h1>
+    <section id="form-section">
+      <article id="form-info">
+        <h2>UDFYLD FORMULAREN og vi sender den rette ekspert din vej</h2>
+        <p>I ekstreme nødstilfælde kontakt vores 24-timers emergency-linje på tlf.
+          12 34 56 78</p>
+      </article>
+      <form id="webform"></form>
+    </section>
+    <section id="form-summary">
+      <h2>Summary</h2>
+      <article>
+        <p class="placeholder">Opsummering</p>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <nav class="some">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="another">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="yetanother">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="js/burger.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

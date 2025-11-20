@@ -1,119 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/cards.css" />
-    <link rel="icon" type="image/png" href="img/fav.png" />
-    <title>Emergency Site</title>
-  </head>
-  <body id="frontpage">
-    <header>
-      <nav>
-        <div id="logotype-wrapper" class="logo">
-          <a href="index.html"> LOGO-TYPE </a>
-        </div>
-        <ul class="menu">
-          <li><a class="menuItem" href="instruction.html">Nærkontakt </a></li>
-          <li><a class="menuItem" href="register.html">Indberet</a></li>
-        </ul>
-        <button class="burger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      </nav>
-    </header>
-    <section id="main-disclamer">
-      <div id="main-disclamer-content">
-        <img src="warning" alt="ICON" />
-        <div>
-          <h1>OVERSKRIFT</h1>
-          <p class="sub">Underrubrik</p>
-        </div>
-      </div>
-    </section>
-    <main>
-      <section id="daily">
-        <article class="daily_card">
-          <img src="" alt="teaser_img" />
-          <div class="daily_text">
-            <h2>Teaser</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              magnam ducimus ea, sed minima asperiores.
-            </p>
-            <a href="" class="cta_btn">Se mere</a>
-          </div>
-        </article>
-        <article class="daily_card">
-          <img src="" alt="teaser_img" />
-          <div class="daily_text">
-            <h2>Teaser</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              magnam ducimus ea, sed minima asperiores.
-            </p>
-            <a href="" class="cta_btn">Se mere</a>
-          </div>
-        </article>
-      </section>
-      <section id="breaking">
-        <article class="news_card">
-          <h3>Nyhed</h3>
-          <p>Lorem ipsum dolor sit, sed minima asperiores.</p>
-          <img src="" alt="news_img" />
-          <a class="cta_btn" href="">Læs mere</a>
-        </article>
-        <article class="news_card">
-          <h3>Nyhed</h3>
-          <p>Lorem ipsum dolor sit, sed minima asperiores.</p>
-          <img src="" alt="news_img" />
-          <a class="cta_btn" href="">Læs mere</a>
-        </article>
-        <article class="news_card">
-          <h3>Nyhed</h3>
-          <p>Lorem ipsum dolor sit, sed minima asperiores.</p>
-          <img src="" alt="news_img" />
-          <a class="cta_btn" href="">Læs mere</a>
-        </article>
-      </section>
-    </main>
 
-    <footer>
-      <nav class="some">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="another">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="yetanother">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-    </footer>
-    <script src="js/burger.js"></script>
-    <!-- <script src="js/main.js"></script> -->
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/burger.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="icon" type="image/png" href="img/fav.png" />
+  <title>Emergency Site</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+</head>
+
+<body id="frontpage">
+  <header>
+    <nav>
+      <div id="logotype-wrapper" class="logo">
+        <a href="index.html" class="logo-brand">
+          <img src="img/ghostlogo2.svg" alt="Ghost Emergency logo" class="logo-icon" />
+          <span class="logo-text">Ghostbuddies</span>
+        </a>
+      </div>
+      <ul class="menu">
+        <li><a class="menuItem" href="instruction.html"> Kontakt vores eksperter</a></li>
+        <li><a class="menuItem" href="register.html">Indberet din emergency</a></li>
+      </ul>
+
+      <!-- DARK MODE TOGGLE -->
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Skift farvetilstand">
+        Nat
+      </button>
+
+      <button class="burger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </nav>
+  </header>
+  <section id="main-disclamer">
+    <div id="main-disclamer-content">
+      <img src="img/ghostlogo2.svg" alt="Ghostbusters DK ikon" class="hero-icon" />
+      <div>
+        <h1>HAR DU SET ET SPØGELSE?</h1>
+        <p class="sub">
+          Bare rolig – du er ikke skør. Vi ser dem også.
+          Få hjælp, guider og eksperter, før det udvikler sig til en fuld hjemsøgelse
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="daily">
+      <article class="daily_card">
+        <img src="img/ghosttype.webp" alt="spøgelsestyper">
+        <div class="daily_text">
+          <h2> Vælg din spøgelsestype</h2>
+          <p>
+            Identificer, hvilken type genfærd du står overfor. Brug guiden her som
+            førstehjælp i en paranormalt presset situation.
+          </p>
+          <a href="register.html" class="cta_btn">Se mere</a>
+        </div>
+      </article>
+      <article class="daily_card">
+        <img src="img/ghostguide.webp" alt="guide til egenhåndtering">
+        <div class="daily_text">
+          <h2>Guide til egenhåndtering af genfærd</h2>
+          <p>
+            Konfrontation med et genfærd kan opstå pludseligt og uden advarsel. For at minimere risikoen for fysisk og
+            psykisk
+            påvirkning anbefales følgende fremgangsmåde.
+          </p>
+          <a href="" class="cta_btn">Se mere</a>
+        </div>
+      </article>
+      <article class="daily_card">
+        <img src="img/vejleder.webp" alt="eksperter">
+        <div class="daily_text">
+          <h2> Læs om vores eksperter</h2>
+          <p>
+            Udfyld vores webformular, så matcher vi dig med den rette ekspert, hvis du står i
+            en paranormalt presset situation.
+          </p>
+          <a class="cta_btn" href="instruction.html">Se mere</a>
+
+        </div>
+      </article>
+    </section>
+
+    <section id="breaking">
+      <article class="news_card">
+        <div class="news_card_header">
+          <h3>Sharing is Caring: Tips fra vores læsere</h3>
+          <button class="info-btn" type="button" data-popover="tips-popover" aria-label="Kort info om tips-artiklen">
+            i
+          </button>
+        </div>
+
+        <p>Danskerne deler deres bedste tricks mod hjemsøgelser – fra lavendelduft til FaceTime med præster.</p>
+        <img src="img/ghosttips.webp" alt="ghost tips" />
+        <button class="cta_btn open-dialog" data-dialog="dialog-tips">Læs mere</button>
+
+        <!-- POPOVER -->
+        <div id="tips-popover" class="popover" hidden>
+          Hurtigt overblik: Læsernes bedste hverdags-tricks til at få ro i et hjem med
+          mulig paranormal aktivitet.
+        </div>
+      </article>
+
+
+      <article class="news_card">
+        <div class="news_card_header">
+          <h3>Lugter det lidt af genfærd?</h3>
+          <button class="info-btn" type="button" data-popover="smelly-popover"
+            aria-label="Kort info om Smelly Ghost artiklen">
+            i
+          </button>
+        </div>
+
+        <p>Sådan skelner du mellem fysisk og spirituel gas</p>
+        <img src="img/prut.webp" alt="prut" />
+        <button class="cta_btn open-dialog" data-dialog="dialog-smelly">Læs mere</button>
+
+        <!-- POPOVER-BOBLE -->
+        <div id="smelly-popover" class="popover" hidden>
+          Hurtigt overblik: Få 5 tegn på, om lugten kommer fra dig –
+          eller fra åndeverdenen.
+        </div>
+      </article>
+
+      <article class="news_card">
+        <div class="news_card_header">
+          <h3>Bestil din emergency-kit</h3>
+          <button class="info-btn" type="button" data-popover="kit-popover" aria-label="Kort info om emergency-kittet">
+            i
+          </button>
+        </div>
+
+        <p>Indeholder hellig vand, krystaller, anti-ektoplasma spray og en hotline til clairvoyante.</p>
+        <img src="img/ghostkit.webp" alt="emergency-kit">
+        <button class="cta_btn open-dialog" data-dialog="dialog-kit">Læs mere</button>
+
+        <!-- POPOVER -->
+        <div id="kit-popover" class="popover" hidden>
+          Få et hurtigt førstehjælps-kit mod hjemsøgelser – til lejlighed, villa
+          eller slot.
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <nav class="some">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="another">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="yetanother">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <!-- 1: TIPS-ARTIKEL -->
+  <dialog id="dialog-tips" class="news-dialog">
+    <article class="news-dialog__content">
+      <header class="news-dialog__header">
+        <h2>Sharing is Caring: Tips fra vores læsere</h2>
+      </header>
+
+      <div class="news-dialog__body">
+        <p>
+          Danskerne deler i stigende grad deres egne erfaringer med at håndtere hjemsøgelser i hverdagen. Meldingerne
+          spænder fra
+          praktiske eksperimenter til mere kreative tilgange, og fællesnævneren er ønsket om at skabe ro i hjemmet, selv
+          når den
+          paranormale aktivitet føles overvældende. Nedenfor præsenteres et udvalg af læsernes bedste råd samt en faglig
+          vurdering
+          fra en ekspert.
+        </p>
+
+        <img src="img/ghosttips.webp" alt="Danskere deler tips mod hjemsøgelser" class="news-dialog__image" />
+
+        <details class="accordion-inline">
+          <summary>“Månedens bedste tip: Jeg satte Dua Lipa på, og så forsvandt han”</summary>
+          <p>
+            En læser fra Frederiksberg beretter, at et vedvarende genfærd i soveværelset forsvandt i det øjeblik,
+            der blev afspillet popmusik på fuld volumen. Ifølge læseren reagerede entiteten tydeligt på rytmerne,
+            hvorefter rummet faldt til ro.
+          </p>
+          <p>
+            Flere læsere har siden rapporteret lignende oplevelser, hvor musik af specifikke kunstnere tilsyneladende
+            skaber uro blandt genfærd og får dem til at trække sig tilbage.
+          </p>
+        </details>
+
+
+        <h3>“En læser sværger til eddike og rosévin”</h3>
+        <p>
+          En anden læser fra Aarhus beskriver en metode, der kombinerer husmortricks med spontane løsninger. En skål
+          eddike i
+          vindueskarmen skabte efter sigende markant mindre aktivitet i hjemmet, og et glas rosévin hjalp med at
+          berolige nerverne
+          i situationer med uforklarlige lyde. Læseren understreger, at ritualet ikke nødvendigvis jager ånder væk, men
+          bidrager
+          til en følelse af kontrol, hvilket mange oplever som afgørende i paranormale hændelser.
+        </p>
+
+        <h3>“Ekspert: Det handler om at tage kontrollen tilbage fra ånderne”</h3>
+        <p>Ifølge en spirituel rådgiver, der arbejder professionelt med energiarbejde og renselser, er den vigtigste
+          faktor i
+          håndteringen af hjemsøgelser borgerens egen mentale tilstedeværelse. Eksperten forklarer, at genfærd ofte
+          reagerer på
+          usikkerhed eller mangel på struktur i rummet. Klar belysning, faste rutiner og tydelige grænser i hjemmet kan
+          derfor
+          reducere aktiviteten. Rådgiveren anbefaler en kombination af praktiske foranstaltninger og personlig grounding
+          for at
+          genetablere tryghed og stabilitet i boligen.</p>
+      </div>
+
+      <form method="dialog" class="news-dialog__footer">
+        <button class="cta_btn dialog-cta close-dialog">Luk</button>
+      </form>
+    </article>
+  </dialog>
+
+  <!-- 2: SMELLY GHOST -->
+  <dialog id="dialog-smelly" class="news-dialog">
+    <article class="news-dialog__content">
+      <header class="news-dialog__header">
+        <h2>Lugter det lidt af genfærd?</h2>
+      </header>
+
+      <div class="news-dialog__body">
+        <img src="img/prut.webp" alt="Illustration af smelly ghost" class="news-dialog__image" />
+        <h3>Sådan skelner du mellem fysisk og spirituel gas</h3>
+        <p>
+          Hvordan ved du, om det er dig selv, der burde sige undskyld – eller om skylden ligger i den åndelige verden?
+          Eksperter
+          giver her de mest almindelige indikatorer:
+        </p>
+        <ol>
+          <li>Lugten kommer ud af det blå
+            Hvis du står i et helt almindeligt rum, uden mennesker, dyr eller chili con carne i nærheden – men alligevel
+            får en hilsen fra tågeslottet, kan det være et åndeligt pust.
+          </li>
+          <li>Det følger dig mellem rum
+            Fysisk gas bliver som regel i ét område. Spirituel gas “svæver” med dig, og kan pludselig dukke op i
+            køkkenet, soveværelset eller badeværelset (hvilket er ekstra forvirrende).
+          </li>
+          <li>Temperaturen falder samtidig
+            Spirituel prut ledsages ofte af et lille kuldesus. Hvis du både bliver kold og fornærmet – så er det nok
+            ikke dig.
+          </li>
+          <li>Du hører små fnis (ikke alle gør)
+            Spirituelle drillesyge ånder udsender somme tider svage lydspor. Hvis du fornemmer en fjern latter, er sagen
+            klar.
+          </li>
+          <li>Ingen i hjemmet vil indrømme noget
+            Klassisk tegn.
+          </li>
+        </ol>
+
+        <details class="accordion-inline">
+          <summary>Læserbrev: “Min ghost slipper kun vind, når jeg tænder stearinlys”</summary>
+          <p>
+            En læser, der ønsker at være anonym, skriver:
+            “Jeg troede først, det var min kæreste. Men hver eneste gang jeg tænder et
+            stearinlys – PUF – så kommer der en lugt, som ikke kan forklares med nogen
+            levende krop. Som om nogen i den anden ende prøver at puste lyset ud. Jeg ved
+            ikke, om han er sur på mig, eller om han bare har humoristisk sans. Hjælp.”
+          </p>
+          <p>
+            Ifølge eksperter er kombinationen af ild og åndehumor en klassiker: “Det kan
+            være, at ånden bruger lejligheden til at manifestere sig mere tydeligt,” siger
+            clairvoyant Holm. “Eller også prøver den bare at lave stemning. Nogle ånder er
+            mere gasagtige end andre.”
+          </p>
+        </details>
+
+
+        <h3>Konklusion: Lugt ikke væk fra problemet</h3>
+        <p>
+          Uforklarlige lugte kan være pinlige – især hvis du bor sammen med mennesker, du gerne vil fremstå værdig
+          overfor. Men
+          før du beskylder nogen i hjemmet, så overvej: Måske skal du tage en snak med dit lokale medium… eller med
+          onkel Bent på
+          den anden side.
+
+          For når det kommer til ånder og aromaer, er én ting sikkert:
+        </p>
+        <p>
+          Der findes mere mellem himmel og jord – og noget af det lugter.
+        </p>
+      </div>
+
+      <form method="dialog" class="news-dialog__footer">
+        <button class="cta_btn dialog-cta close-dialog">Luk</button>
+      </form>
+    </article>
+  </dialog>
+
+  <!-- 3: EMERGENCY-KIT -->
+  <dialog id="dialog-kit" class="news-dialog">
+    <article class="news-dialog__content">
+      <header class="news-dialog__header">
+        <h2>NYHED! Bestil dit Emergency-Kit!</h2>
+      </header>
+
+      <div class="news-dialog__body">
+        <p>Nu kan danskere endelig ånde lettet op… eller i hvert fald prøve. For med lanceringen af det nye Emergency
+          Ghost-Kit får
+          alle muligheden for at sikre sig mod paranormale overraskelser – uanset om man bor i en etværelses, en stor
+          familievilla
+          eller et gods med potentiale for 400 års indestængt spøgelsestrafik.</p>
+        <img src="img/ghostkit.webp" alt="Emergency ghost kit" class="news-dialog__image" />
+        <details class="accordion-inline">
+          <summary>Pakken fås i tre størrelser – lille hjem, villa eller slot</summary>
+          <p>De tre versioner:</p>
+          <ul>
+            <li>
+              <strong>Mini-Kit (til lejligheder):</strong>
+              indeholder helligt vand i rejsestørrelse, én energikrystal og en pocket-udgave
+              af “Skæld ud på dit spøgelse – med succes!”
+            </li>
+
+            <li>
+              <strong>Villa-Kit:</strong>
+              dobbelt så meget helligt vand, en pakke anti-ektoplasma spray og et mini-medium-kort,
+              du kan vifte med, hvis du føler dig iagttaget.
+            </li>
+
+            <li>
+              <strong>Slot-Kit:</strong>
+              den ultimative pakke, udstyret med store krystaller, professionel renselses-spray,
+              en røgelsespistol, samt eksklusiv adgang til en clairvoyant hotline, hvor en ægte ekspert
+              kan guide dig gennem selv de mest komplicerede åndelige husregler.
+            </li>
+          </ul>
+        </details>
+
+        <p>
+          Ifølge producenten er hvert kit “testet på hjem, hvor spøgelserne stadig ikke vil indrømme, at de bor der.”
+        </p>
+
+        <h3>Leveres inden for 24 timer – med sikker afstand til ånder</h3>
+        <p>
+          For at sikre en tryggere oplevelse – både for kunder og bud – bliver alle kits leveret med en garanteret
+          paranormal
+          sikkerhedszone. Det betyder, at buddet ringer på fra tre meters afstand, mens pakken skubbes hen til døren på
+          en lille
+          specialdesignet anti-ånd-slæde.
+
+          Hvis man bor i et ekstra hjemsøgt område, tilbyder firmaet endda en “zero-contact delivery”, hvor pakken
+          sænkes ned fra
+          en drone for at undgå eventuelle flyvende spøgelser, der kunne finde på at blande sig.
+
+          Leveringstiden er 24 timer, men ifølge virksomheden er der hasteservice, hvis du “føler dig i akut åndelig
+          fare eller
+          har opdaget en kold plet i hjørnet af dit soveværelse kl. 02:17.”
+        </p>
+        <p>
+          Kittet er ikke en garanti for fuld renselse – men det giver dig et
+          struktureret første skridt, mens du afventer professionel hjælp.
+        </p>
+        <h3>Så… er du forberedt?</h3>
+        <p>Uanset om du kæmper med mærkelige lyde, uforklarlige skygger eller en afdød onkel med humor, lover
+          Emergency-Kittet at
+          give dig ro i sindet – eller i det mindste illusionen af det.
+
+          Bestillingen er åben. Ånderne… er advaret.</p>
+      </div>
+
+      <form method="dialog" class="news-dialog__footer">
+        <button class="cta_btn dialog-cta close-dialog">Luk</button>
+      </form>
+    </article>
+  </dialog>
+
+
+  <script src="js/burger.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

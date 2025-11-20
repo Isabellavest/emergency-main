@@ -67,12 +67,12 @@ h3 {
   font-size: var(--headline3-size);
 }
 
-main>h1 {
+main > h1 {
   width: calc(80% - 6rem);
 }
 
 /* NAVIGATION STRUCTURES */
-header>nav {
+header > nav {
   height: 100%;
   background-color: var(--color-menu-bg);
 }
@@ -90,7 +90,6 @@ nav a {
   color: var(--color-text);
 }
 
-/* Måske skal du lave en ny regel for logotype-wrapper, når du har lavet din logotype */
 #logotype-wrapper {
   background-color: var(--color-logotype-bg);
   display: flex;
@@ -99,7 +98,7 @@ nav a {
   height: 3.6rem;
 }
 
-#logotype-wrapper>a {
+#logotype-wrapper > a {
   color: var(--color-text-logotype);
   font-size: var(--font-logotype-size);
   font-weight: var(--font-weight-medium);
@@ -118,20 +117,141 @@ header nav li a {
 }
 
 /* Pilen efter menu-tekst */
-header>nav li>a:after {
+header > nav li > a:after {
   content: " \2192";
 }
 
-/* Global menu hover effekt - Lav den om til det, du synes */
-nav a:hover {
+/* Kun menu-links i <li>, ikke logoet */
+header nav li a:hover {
   background-color: var(--color-link-hover);
 }
 
-nav a:active {
+header nav li a:active {
   background-color: var(--color-link-active);
+}
+
+.logo-brand:hover {
+  background: none;
+  box-shadow: none;
+  transform: scale(1.02);
+  transition: transform 0.15s ease, filter 0.2s ease;
+  filter: brightness(1.08);
 }
 
 /* FOOTER */
 footer a {
   font-size: 0.7rem;
+}
+
+.logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+
+.logo-text {
+  font-size: var(--font-logotype-size);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-logotype);
+  text-transform: uppercase;
+}
+
+/* HERO / MAIN DISCLAIMER */
+
+#main-disclamer {
+  background: linear-gradient(180deg, var(--color-head-bg) 0%, #1e2b11 100%);
+  padding: 4rem 0;
+}
+
+#main-disclamer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-icon {
+  width: 70px;
+  height: auto;
+  margin-top: -10px;
+}
+
+#main-disclamer h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.03em;
+}
+
+#main-disclamer .sub {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* MOBILE: center content */
+@media (max-width: 700px) {
+  #main-disclamer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-icon {
+    margin-bottom: 0.5rem;
+    width: 60px;
+  }
+}
+
+.hero-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/************************ Tema-knap i headeren ***********************/
+.theme-toggle {
+  margin-left: 1rem;
+  margin-right: 2.5rem; /* ← NYT: trækker den ind mod midten */
+  padding: 0.25rem 0.6rem; /* mindre knap */
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--color-text-inverted);
+  font-size: 0.75rem; /* mindre tekst */
+  font-weight: 500;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  width: auto; /* ↓ lad knappen passe til indholdet */
+  flex: 0 0 auto; /* ↓ må IKKE strækkes i flex-container */
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-cta-card-bg);
+  outline-offset: 2px;
 }
